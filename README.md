@@ -22,4 +22,4 @@ PS: python main.py 163mx01.mxmail.netease.com 25
 
 - 执行结束后，会在本地生成探测为存活的邮箱的文本文件。
 
-![image-20220512152753302](https://huihui-1258180155.cos.ap-nanjing.myqcloud.com/image-20220512152753302.png)
+![image-20220512160623674](https://huihui-1258180155.cos.ap-nanjing.myqcloud.com/image-20220512160623674.png)
