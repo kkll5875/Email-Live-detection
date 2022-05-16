@@ -30,8 +30,8 @@ def checkEmail(smtp_host,smtp_port):
 
     print(type(emails_list))
     for x in range(len(emails_list)):
-        target_email = emails_list[x]
-        send_data = "RCPT TO:<"+target_email+">\r\n"
+        # target_email = emails_list[x]
+        send_data = "RCPT TO:<"+emails_list[x]+">\r\n"
         socket_con.send(send_data.encode('utf-8'))
         
         check_email_reback = socket_con.recv(bufsize).decode('utf-8')
@@ -69,7 +69,6 @@ if __name__ == '__main__':
     | 命令格式: python main.py smtp_server 25                               
     -------------------------------------------------------------------------
     '''
-
     print(use_tools)
     fire.Fire(checkEmail)
 

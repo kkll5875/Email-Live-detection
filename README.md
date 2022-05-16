@@ -13,6 +13,8 @@ nslookup -type=mx 163.com
 
 ![image-20220512152502273](https://huihui-1258180155.cos.ap-nanjing.myqcloud.com/image-20220512152502273.png)
 
+> 在真实项目中，建议将所有的 smtp 服务器都试一遍。
+
 - 执行命令：
 
 ```
