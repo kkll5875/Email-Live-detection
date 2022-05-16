@@ -17,7 +17,7 @@ def checkEmail(smtp_host,smtp_port):
     except:
         print("Socket 连接失败")
     socket_con_recv = socket_con.recv(bufsize).decode('utf-8')
-    print("=="+socket_con_recv)
+    print("## "+socket_con_recv)
     if socket_con_recv[:3] != '220':
         print('250 replay not received from server250 replay not received from server')
     socket_con.send('EHLO hello\r\n'.encode('utf-8'))
@@ -28,7 +28,7 @@ def checkEmail(smtp_host,smtp_port):
     from_reback = socket_con.recv(bufsize).decode('utf-8')
     print('发送From信息:'+from_reback)
 
-    print(type(emails_list))
+    # print(type(emails_list))
     for x in range(len(emails_list)):
         # target_email = emails_list[x]
         send_data = "RCPT TO:<"+emails_list[x]+">\r\n"
@@ -36,15 +36,16 @@ def checkEmail(smtp_host,smtp_port):
         
         check_email_reback = socket_con.recv(bufsize).decode('utf-8')
         if check_email_reback[:3] =='250':
-            print('此邮箱存活：'+emails_list[x])
-            print(check_email_reback)
+            print('SMTP响应信息：'+check_email_reback.replace('\n',''))
+            print('此邮箱存活：'+emails_list[x].replace('\n',''))
+            
             # live_email = emails_list[x]
             # email_list.append(line)
             live_email.append(emails_list[x])
         elif 'recipient is not exist' in check_email_reback:
-            print('此邮箱不存在：'+emails_list[x])
+            print('此邮箱不存在：'+emails_list[x].replace('\n',''))
         else:
-            print('其他错误，请查看错误信息：'+check_email_reback)
+            print('其他错误，请查看错误信息：'+check_email_reback.replace('\n',''))
     print("发现如下存活的邮件账号：")
     for n in range(len(live_email)):
         print(live_email[n])
