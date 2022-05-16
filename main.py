@@ -24,7 +24,7 @@ def checkEmail(smtp_host,smtp_port):
     ehlo_reback = socket_con.recv(bufsize).decode('utf_8')
     print("发送 EHLO"+ehlo_reback)
     
-    socket_con.send('MAIL FROM:<aaa@aaa.com>\r\n'.encode('utf-8'))
+    socket_con.send('MAIL FROM:<aaa@picchealth.com>\r\n'.encode('utf-8'))
     from_reback = socket_con.recv(bufsize).decode('utf-8')
     print('发送From信息:'+from_reback)
 

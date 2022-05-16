@@ -34,6 +34,17 @@ PS: python main.py 163mx01.mxmail.netease.com 25
 MAIL FROM:<aaa@aaa.com>
 ```
 
+**注意：FROM字段最好不要与目标邮箱域名一样，否则可能触发SPF检测，导致请求被SPF协议拦截。若检查了该企业的邮箱未使用SPF的话，则可随意使用FROM**
+
+如：目标邮箱是 aaa@163.com 且存在SPF时，则from字段就不要使用 163.com 后缀的了。
+
+```
+检查SPR：
+nslookup -type=txt domain
+```
+
+![image-20220516105158348](https://huihui-1258180155.cos.ap-nanjing.myqcloud.com/image-20220516105158348.png)
+
 - 修改判断逻辑
 
 通常情况下，若邮箱存在，则  RCPT TO: 字段的响应状态码为 250 ，但是有些特殊情况下，如SMTP配置特殊，导致响应状态码没有250的，则可以根据实际情况修改源码。
