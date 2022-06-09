@@ -39,7 +39,7 @@ MAIL FROM:<aaa@aaa.com>
 如：目标邮箱是 aaa@163.com 且存在SPF时，则from字段就不要使用 163.com 后缀的了。
 
 ```
-检查SPR：
+检查SPF：
 nslookup -type=txt domain
 ```
 
